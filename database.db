@@ -1,0 +1,146 @@
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    category_id INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    description TEXT,
+    image_url VARCHAR(255),
+    FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100),
+    role ENUM('Khách hàng', 'Quản trị viên') NOT NULL
+);
+CREATE TABLE feedbacks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    content TEXT NOT NULL,
+    rating TINYINT CHECK (rating BETWEEN 1 AND 5),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+CREATE TABLE tables (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    capacity INT NOT NULL
+);
+
+
+ALTER TABLE feedbacks 
+ADD COLUMN created_at DATETIME DEFAULT CURRENT_TIMESTAMP;
+CREATE TABLE reservations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    table_id INT NOT NULL,
+    user_id INT NOT NULL,
+    reservation_date DATETIME NOT NULL,
+    status ENUM('Chưa xác nhận', 'Đã xác nhận', 'Hủy') NOT NULL,
+    FOREIGN KEY (table_id) REFERENCES tables(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
+
+
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL, 
+    description TEXT,
+    image_url VARCHAR(255)
+);
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) UNIQUE,  -- Đảm bảo email là duy nhất
+    role ENUM('Khách hàng', 'Quản trị viên') NOT NULL
+);
+CREATE TABLE feedbacks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    content TEXT NOT NULL,
+    rating TINYINT CHECK (rating BETWEEN 1 AND 5),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,  -- Thêm thời gian tạo phản hồi
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+CREATE TABLE tables (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    capacity INT NOT NULL,
+    area VARCHAR(100)  -- Thêm thông tin khu vực (tuỳ chọn)
+);
+CREATE TABLE reservations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    table_id INT NOT NULL,
+    user_id INT NOT NULL,
+    reservation_date DATETIME NOT NULL,
+    status ENUM('Chưa xác nhận', 'Đã xác nhận', 'Hủy') NOT NULL,
+    FOREIGN KEY (table_id) REFERENCES tables(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+INSERT INTO products (name, price, description, image_url) VALUES
+('Bánh mì', 15000.00, 'Bánh mì tươi, thơm ngon.', 'image1.jpg'),
+('Cà phê đen', 25000.00, 'Cà phê đen nguyên chất.', 'image2.jpg'),
+('Sữa chua', 10000.00, 'Sữa chua tự làm, mịn màng.', 'image3.jpg'),
+('Pizza Margherita', 150000.00, 'Pizza truyền thống với phô mai và cà chua.', 'image4.jpg'),
+('Bánh kem', 45000.00, 'Bánh kem ngọt ngào cho mọi dịp.', 'image5.jpg'),
+('Mì xào', 30000.00, 'Mì xào thập cẩm, ngon miệng.', 'image6.jpg'),
+('Nước cam ép', 20000.00, 'Nước cam ép tự nhiên, tươi mát.', 'image7.jpg'),
+('Burger gà', 50000.00, 'Burger gà tươi ngon, phù hợp cho bữa ăn nhanh.', 'image8.jpg'),
+('Sushi', 75000.00, 'Sushi hải sản tươi ngon, mang hương vị Nhật Bản.', 'image9.jpg'),
+('Cơm chiên', 40000.00, 'Cơm chiên thập cẩm, dễ ăn và đầy đủ dinh dưỡng.', 'image10.jpg');
+
+INSERT INTO users (username, password, email, role) VALUES
+('user1', 'password1', 'user1@example.com', 'Khách hàng'),
+('user2', 'password2', 'user2@example.com', 'Khách hàng'),
+('user3', 'password3', 'user3@example.com', 'Khách hàng'),
+('admin1', 'password4', 'admin1@example.com', 'Quản trị viên'),
+('user4', 'password5', 'user4@example.com', 'Khách hàng'),
+('user5', 'password6', 'user5@example.com', 'Khách hàng'),
+('admin2', 'password7', 'admin2@example.com', 'Quản trị viên'),
+('user6', 'password8', 'user6@example.com', 'Khách hàng'),
+('user7', 'password9', 'user7@example.com', 'Khách hàng'),
+('admin3', 'password10', 'admin3@example.com', 'Quản trị viên');
+
+
+
+INSERT INTO feedbacks (user_id, content, rating) VALUES
+(1, 'Rất ngon, tôi rất thích!', 5),
+(2, 'Bánh mì hơi khô, nhưng cà phê rất tốt.', 3),
+(3, 'Món sushi tuyệt vời!', 4),
+(4, 'Dịch vụ chậm, nhưng đồ ăn ngon.', 4),
+(5, 'Mì xào hơi mặn, nhưng khẩu vị cá nhân.', 3),
+(6, 'Cà phê đen rất đậm đà, tôi sẽ quay lại.', 5),
+(7, 'Nước cam ép rất tươi ngon!', 5),
+(8, 'Bánh kem khá ngọt, nhưng tôi vẫn thích.', 4),
+(9, 'Cơm chiên rất hợp khẩu vị.', 5),
+(10, 'Hơi thất vọng về món pizza, không đủ phô mai.', 2);
+
+INSERT INTO tables (name, capacity, area) VALUES
+('Bàn 1', 4, 'Khu vực A'),
+('Bàn 2', 2, 'Khu vực B'),
+('Bàn 3', 6, 'Khu vực C'),
+('Bàn 4', 2, 'Khu vực A'),
+('Bàn 5', 4, 'Khu vực B'),
+('Bàn 6', 4, 'Khu vực C'),
+('Bàn 7', 8, 'Khu vực A'),
+('Bàn 8', 2, 'Khu vực B'),
+('Bàn 9', 4, 'Khu vực C'),
+('Bàn 10', 6, 'Khu vực A');
+
+
+INSERT INTO reservations (table_id, user_id, reservation_date, status) VALUES
+(1, 1, '2024-12-05 18:30:00', 'Đã xác nhận'),
+(2, 2, '2024-12-05 19:00:00', 'Chưa xác nhận'),
+(3, 3, '2024-12-05 19:30:00', 'Đã xác nhận'),
+(4, 4, '2024-12-06 12:00:00', 'Chưa xác nhận'),
+(5, 5, '2024-12-06 13:00:00', 'Đã xác nhận'),
+(6, 6, '2024-12-06 14:00:00', 'Hủy'),
+(7, 7, '2024-12-06 15:00:00', 'Chưa xác nhận'),
+(8, 8, '2024-12-06 16:00:00', 'Đã xác nhận'),
+(9, 9, '2024-12-07 18:00:00', 'Chưa xác nhận'),
+(10, 10, '2024-12-07 19:30:00', 'Hủy');

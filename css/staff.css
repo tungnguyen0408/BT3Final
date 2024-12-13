@@ -1,0 +1,137 @@
+/* Sidebar */
+.sidebar {
+  background: #2c3e50;
+  color: #fff;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.sidebar h4 {
+  color: #fff;
+  font-size: 22px;
+  background-color: #34495e;
+  margin: 0;
+  text-align: center;
+  padding: 15px;
+}
+
+.main {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-link:hover {
+  background: #3498db !important;
+  color: #fff;
+}
+
+.nav-link.active {
+  background: #1abc9c;
+  color: #fff;
+}
+
+.nav-link i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+hr {
+  border-top: 1px solid #34495e;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  border-color: #e74c3c;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+  border-color: #c0392b;
+}
+
+.add-staff-btn,
+.wrapper-staff-btn {
+  height: 40px;
+}
+
+/* Giao diện tìm kiếm */
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  border: 1px solid #ccc;
+  padding: 8px 15px;
+  font-size: 14px;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.search-btn {
+  padding: 8px 15px;
+  font-size: 14px;
+  border: 1px solid #3498db;
+  background-color: #3498db;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.search-btn:hover {
+  background-color: #2980b9;
+}
+
+.add-staff-btn {
+  height: 40px;
+  width: auto;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Table styles */
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Header user */
+.header_user i {
+  cursor: pointer;
+}
+.modal-header {
+  background: #1abc9c;
+  color: #fff;
+}

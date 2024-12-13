@@ -1,0 +1,86 @@
+/* Sidebar */
+.sidebar {
+  background: #2c3e50 !important;
+  color: #fff;
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+}
+.content {
+  margin-left: 300px;
+  padding: 20px;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.sidebar h4 {
+  color: #fff;
+  font-size: 30px;
+  margin: 0;
+  text-align: center;
+}
+
+.nav-link.active {
+  background: #1abc9c;
+  color: #fff;
+}
+
+.nav-link:hover {
+  background: #3498db;
+  color: #fff;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  font-size: 22px;
+  border: none;
+  background: none;
+  border-radius: 0;
+}
+.main {
+  margin-left: 300px;
+  padding: 20px;
+  background-color: #fff;
+  flex-grow: 1;
+}
+
+/* Đảm bảo modal được căn giữa màn hình */
+.modal-dialog {
+  max-width: 500px; /* Bạn có thể điều chỉnh chiều rộng tối đa của modal */
+  margin: auto; /* Căn giữa modal theo chiều ngang */
+}
+
+/* Căn giữa nội dung bên trong modal */
+.modal-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Đảm bảo chiều cao của phần nội dung là 100% */
+}
+
+/* Tùy chỉnh form nếu cần */
+form {
+  width: 100%;
+}
+.btn-danger {
+  background-color: #e74c3c !important;
+  border-color: #e74c3c;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+  border-color: #c0392b;
+}
+.modal-footer .btn-danger {
+  background: #e74c3c;
+}

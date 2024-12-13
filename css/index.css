@@ -1,0 +1,538 @@
+/* Định dạng cho Navbar */
+#navbar {
+  background-color: rgba(0, 0, 0, 0.7); /* Màu nền đen trong suốt */
+}
+
+.navbar-brand,
+.nav-link {
+  color: #ffd700; /* Màu vàng cho brand và link */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Đổ bóng cho text */
+  text-decoration: none !important; /* Không có gạch dưới */
+}
+
+/* Hiệu ứng hover cho các mục trong menu */
+.navbar-nav .nav-link:hover,
+.dropdown-item:hover {
+  color: #f39c12 !important; /* Màu vàng khi hover */
+  text-decoration: none !important;
+}
+
+/* Định dạng cho dropdown */
+.dropdown-menu .dropdown-item {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  color: #f39c12 !important;
+  text-decoration: none !important;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.dropdown-menu {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 800px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
+.dropdown-menu ul {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.dropdown-menu ul li:hover a {
+  color: #f39c12;
+}
+
+.dropdown-menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Định dạng các danh mục sản phẩm trong dropdown */
+.product-dropdown-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  color: #fff;
+}
+
+.product-category {
+  width: 20%;
+}
+
+.product-category h5 {
+  color: #ffd700;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.product-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.product-category ul li {
+  padding: 5px 0;
+  color: #fff;
+}
+
+.product-category ul li:hover {
+  color: #f39c12;
+  text-decoration: none;
+}
+
+.product-images {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.product-images img {
+  width: 48%;
+  border-radius: 10px;
+}
+
+/* Định dạng cho phần Đăng nhập */
+.navbar .d-flex a {
+  color: #010000;
+  text-decoration: none;
+  padding: 8px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar .d-flex .btn-warning {
+  background-color: #ffd700; /* Màu nền vàng */
+  border: none; /* Xóa viền */
+  padding: 10px 25px; /* Tăng kích thước padding để nút đẹp hơn */
+  font-size: 16px; /* Cỡ chữ phù hợp */
+  font-weight: bold; /* Làm cho chữ đậm */
+  text-transform: uppercase; /* Chữ viết hoa */
+  letter-spacing: 1px; /* Khoảng cách giữa các chữ */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng cho nút */
+}
+
+.navbar .d-flex .btn-warning:hover {
+  background-color: #f39c12; /* Màu vàng đậm khi hover */
+  color: #fff; /* Màu chữ trắng khi hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f39c12 !important;
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .navbar .d-flex {
+    display: block;
+    text-align: center;
+  }
+
+  .navbar .d-flex a {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
+/* Carousel */
+.carousel-item {
+  border-radius: 20px;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  color: white;
+  text-align: center;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.carousel-caption {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.carousel-caption h5 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 10px;
+}
+
+.carousel-caption p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .carousel-caption h5 {
+    font-size: 1.8rem;
+  }
+
+  .carousel-caption p {
+    font-size: 1.2rem;
+  }
+}
+
+.carousel-caption h5 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 10px;
+}
+
+.carousel-caption p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .carousel-caption h5 {
+    font-size: 1.8rem;
+  }
+
+  .carousel-caption p {
+    font-size: 1.2rem;
+  }
+}
+
+#coffeeCarousel {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#coffeeCarousel .carousel-item img {
+  height: 800px; /* Adjust this value as needed */
+  object-fit: cover; /* Ensures the image scales well within the height */
+}
+
+.navbar {
+  border: 3px solid rgba(255, 255, 255, 0.444);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.205) 60%
+  );
+}
+.navbar-nav .nav-link:hover {
+  color: #f39c12 !important;
+  text-decoration: none !important;
+}
+
+.icon-group a {
+  color: white !important;
+}
+.icon-group a:hover {
+  color: #f39c12;
+}
+
+.btn-warning:hover {
+  background-color: #f1c40f;
+}
+
+.box-categories {
+  position: relative;
+}
+
+.box-categories .box-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.product-decription {
+  border-top: 3px dashed white;
+}
+
+.box-categories .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
+}
+.box-sale {
+  position: relative;
+  overflow: hidden;
+  background-color: blue;
+  height: 100%;
+}
+
+.box-item {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.box-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.box-item:hover img {
+  transform: scale(1.1);
+}
+
+.text {
+  position: absolute;
+  color: white;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 70px;
+  left: 20px;
+  z-index: 2;
+}
+
+.text h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.btn-readmore {
+  display: inline-block;
+  background-color: #ffb703;
+  padding: 8px 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.btn-readmore:hover {
+  background-color: #fb8500;
+}
+
+/*Reserve Table*/
+
+.getTable {
+  background-color: rgb(108, 91, 91);
+  height: auto;
+  padding: 30px;
+}
+
+.opening-hours {
+  background-color: #b7a47c;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+.reservation-form {
+  background-color: #2f2f2f;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.reservation-form label {
+  color: white;
+}
+
+.btn-submit {
+  background-color: #e2b94b;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.form-control {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #e2b94b;
+}
+
+.form-control::placeholder {
+  color: #ddd;
+}
+
+.notes-section textarea {
+  resize: none;
+}
+
+/*Process*/
+.coffee-process-section {
+  background-color: #8b5e34;
+  border-radius: 20px;
+  color: white;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.coffee-process-text {
+  flex: 1;
+  position: relative;
+}
+
+.coffee-process-text h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.coffee-process-text p {
+  margin-bottom: 20px;
+}
+
+.coffee-process-text button {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+
+.coffee-bean-img {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+}
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure carousel fills its container properly */
+.coffee-carousel-item img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 20px I !important;
+}
+
+.coffee-carousel-control-prev-icon,
+.coffee-carousel-control-next-icon {
+  background-color: #e2b94b;
+  border-radius: 50%;
+}
+
+/*Divider*/
+
+.divider {
+  width: 55%;
+  height: 4px;
+  border: none;
+  border-top: 4px dashed #8b5e34;
+  margin: 50px auto;
+}
+
+.card-text {
+  color: #fff;
+  font-weight: 500;
+}
+
+.card-title a,
+.special-price {
+  color: #e6b41d;
+  font-weight: 700;
+}
+
+footer {
+  background-color: #2f2f2f;
+}
+
+.image-container {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-image {
+  max-width: 80%; /* Reduce max-width to make the image smaller */
+  max-height: 80%; /* Reduce max-height if needed */
+}
+
+.features-section {
+  padding: 2rem 0;
+}
+
+.feature-item {
+  text-align: center;
+}
