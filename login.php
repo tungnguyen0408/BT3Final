@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <button type="submit" class="btn btn-success w-50 mx-auto d-block mb-3">Đăng nhập</button>
                     </form>
                     <div class="text-center">
-                        Bạn chưa có tài khoản? <a href="./register.html">Đăng ký</a>
+                        Bạn chưa có tài khoản? <a href="register.php">Đăng ký</a>
                     </div>
                     <!-- Nếu có thông báo lỗi -->
                     <?php if (isset($error_message)) { ?>
