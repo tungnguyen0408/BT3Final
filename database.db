@@ -118,3 +118,99 @@ INSERT INTO reservations (table_id, user_id, reservation_date, status) VALUES
 (8, 8, '2024-12-06 16:00:00', 'Đã xác nhận'),
 (9, 9, '2024-12-07 18:00:00', 'Chưa xác nhận'),
 (10, 10, '2024-12-07 19:30:00', 'Hủy');
+
+
+
+
+-- Tạo bảng sản phẩm
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    description TEXT,
+    image_url VARCHAR(255)
+);
+
+-- Tạo bảng người dùng
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) UNIQUE,  -- Đảm bảo email là duy nhất
+    role ENUM('Khách hàng', 'Quản trị viên') NOT NULL
+);
+
+-- Tạo bảng phản hồi
+CREATE TABLE feedbacks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    content TEXT NOT NULL,
+    rating TINYINT CHECK (rating BETWEEN 1 AND 5),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,  -- Thời gian tạo phản hồi
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Tạo bảng bàn
+CREATE TABLE tables (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    capacity INT NOT NULL,
+    area VARCHAR(100)  -- Thông tin khu vực (tuỳ chọn)
+);
+
+-- Tạo bảng đặt bàn
+CREATE TABLE reservations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    table_id INT NOT NULL,
+    user_id INT NOT NULL,
+    reservation_date DATETIME NOT NULL,
+    status ENUM('Chưa xác nhận', 'Đã xác nhận', 'Hủy') NOT NULL,
+    FOREIGN KEY (table_id) REFERENCES tables(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Dữ liệu mẫu cho bảng sản phẩm
+INSERT INTO products (name, price, description, image_url) VALUES
+('Cà phê đen', 25000.00, 'Cà phê đen nguyên chất, thơm ngon.', 'coffee_black.jpg'),
+('Nước cam ép', 20000.00, 'Nước cam ép tự nhiên, tươi mát.', 'orange_juice.jpg'),
+('Trà xanh', 18000.00, 'Trà xanh thơm mát, giải nhiệt.', 'green_tea.jpg'),
+('Sinh tố dâu', 30000.00, 'Sinh tố dâu tươi, ngọt ngào.', 'strawberry_smoothie.jpg'),
+('Trà sữa trân châu', 35000.00, 'Trà sữa truyền thống với trân châu dẻo.', 'milk_tea.jpg'),
+('Cà phê sữa', 27000.00, 'Cà phê sữa đậm đà, thơm ngon.', 'coffee_milk.jpg'),
+('Trà đào', 25000.00, 'Trà đào thơm ngon với lát đào tự nhiên.', 'peach_tea.jpg'),
+('Latte', 40000.00, 'Cà phê Latte béo ngậy.', 'latte.jpg'),
+('Sữa chua uống', 15000.00, 'Sữa chua uống, tươi ngon và bổ dưỡng.', 'yogurt_drink.jpg'),
+('Nước ngọt', 15000.00, 'Nước ngọt các loại.', 'soft_drink.jpg');
+
+-- Dữ liệu mẫu cho bảng người dùng
+INSERT INTO users (username, password, email, role) VALUES
+('user1', 'password1', 'user1@example.com', 'Khách hàng'),
+('user2', 'password2', 'user2@example.com', 'Khách hàng'),
+('admin1', 'password3', 'admin1@example.com', 'Quản trị viên'),
+('user3', 'password4', 'user3@example.com', 'Khách hàng'),
+('user4', 'password5', 'user4@example.com', 'Khách hàng'),
+('admin2', 'password6', 'admin2@example.com', 'Quản trị viên');
+
+-- Dữ liệu mẫu cho bảng phản hồi
+INSERT INTO feedbacks (user_id, content, rating) VALUES
+(1, 'Cà phê rất ngon, đậm đà.', 5),
+(2, 'Nước cam ép hơi chua, nhưng khá ổn.', 4),
+(3, 'Sinh tố dâu rất ngọt ngào.', 5),
+(4, 'Trà sữa trân châu khá ngon, tôi rất thích.', 5),
+(5, 'Latte có chút nhạt, nhưng nhìn chung ổn.', 3);
+
+-- Dữ liệu mẫu cho bảng bàn
+INSERT INTO tables (name, capacity, area) VALUES
+('Bàn 1', 4, 'Khu vực A'),
+('Bàn 2', 2, 'Khu vực B'),
+('Bàn 3', 6, 'Khu vực C'),
+('Bàn 4', 2, 'Khu vực A'),
+('Bàn 5', 4, 'Khu vực B');
+
+-- Dữ liệu mẫu cho bảng đặt bàn
+INSERT INTO reservations (table_id, user_id, reservation_date, status) VALUES
+(1, 1, '2024-12-24 18:30:00', 'Đã xác nhận'),
+(2, 2, '2024-12-24 19:00:00', 'Chưa xác nhận'),
+(3, 3, '2024-12-25 19:30:00', 'Đã xác nhận'),
+(4, 4, '2024-12-25 12:00:00', 'Hủy'),
+(5, 5, '2024-12-25 13:00:00', 'Đã xác nhận');

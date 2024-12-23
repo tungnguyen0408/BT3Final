@@ -69,9 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <!-- Nếu có thông báo lỗi -->
                     <?php if (isset($error_message)) { ?>
-                        <div class="alert alert-danger mt-3">
-                            <?php echo $error_message; ?>
-                        </div>
+                    <div class="alert alert-danger mt-3">
+                        <?php echo $error_message; ?>
+                    </div>
                     <?php } ?>
                 </div>
             </div>
